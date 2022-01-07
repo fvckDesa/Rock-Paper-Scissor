@@ -1,0 +1,265 @@
+:root {
+  --background: #5d009b;
+  --nav-background: #3e206f;
+  --title: #ffff00;
+  --btn-color: #f5e000;
+  --btn-hover: #ffef43;
+  --btn-active: #fff370;
+  --text: #fff;
+  --win: #00ff00;
+  --lose: #ff0022;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+body {
+  font-family: "DotGothic16", sans-serif;
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  transform: scaleX(-1);
+}
+
+img[src="./icon/rock without shadow.png"] {
+  position: absolute;
+  top: -30px;
+}
+
+h1 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 3rem;
+}
+
+nav {
+  width: 100%;
+  height: 15vh;
+  background-color: var(--nav-background);
+  justify-items: center;
+  margin-bottom: 2rem;
+}
+
+footer {
+  width: 100%;
+  height: 7vh;
+  background-color: var(--nav-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav,
+h1,
+h2 {
+  text-align: center;
+  color: var(--text);
+  letter-spacing: 5px;
+}
+
+nav,
+.game-area,
+.score-table,
+.btn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-area {
+  width: 90%;
+  height: 275px;
+  justify-content: space-around;
+}
+
+.game-area h2 {
+  font-size: 2.5rem;
+}
+
+.game-area-left,
+.game-area-right {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-area-right img {
+  transform: scaleX(1) rotate(17deg);
+}
+
+.game-area-left img {
+  transform: scaleX(-1) rotate(17deg);
+}
+
+.image-animation {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.btns {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: 200px;
+}
+
+.btn-div {
+  flex-direction: column;
+}
+
+.btn-rock,
+.btn-paper,
+.btn-scissor {
+  background-color: var(--btn-color);
+  border-radius: 1rem;
+}
+
+.btn-rock:hover,
+.btn-paper:hover,
+.btn-scissor:hover {
+  background-color: var(--btn-hover);
+}
+
+.btn-rock:active,
+.btn-paper:active,
+.btn-scissor:active {
+  background-color: var(--btn-active);
+}
+
+.btn-div img:hover {
+  transform: rotate(-17deg) scaleX(-1);
+}
+
+.animated-punch {
+  left: 25px;
+}
+
+#round-result {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 2rem;
+  margin-block: 1rem;
+}
+
+.animation {
+  animation: start-round 0.2s ease 5;
+}
+
+.remove-animated-punchs {
+  display: none;
+}
+
+@keyframes start-round {
+  from {
+    top: -30px;
+  }
+  to {
+    top: -90px;
+  }
+}
+
+@keyframes pulse-left {
+  from {
+    transform: scaleX(-1) rotate(17deg) scale(1);
+  }
+  to {
+    transform: scaleX(-1) rotate(17deg) scale(1.1);
+  }
+}
+
+@keyframes pulse-right {
+  from {
+    transform: scaleX(1) rotate(17deg) scale(1);
+  }
+  to {
+    transform: scaleX(1) rotate(17deg) scale(1.1);
+  }
+}
+
+.fa-github {
+  color: var(--text);
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+  fill: white;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
+}
+
+.endGame,
+.pop-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.endGame {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.9;
+}
+
+.pop-up {
+  position: absolute;
+  opacity: 1;
+  width: 60%;
+  height: 35%;
+  gap: 1rem;
+  background-color: var(--background);
+  border-radius: 1rem;
+  box-shadow: 26px 26px 40px -6px rgba(255, 243, 112, 0.73);
+  overflow: hidden;
+}
+
+.pop-up button {
+  background-color: gray;
+  color: var(--text);
+  border: double 5px black;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-family: "DotGothic16", sans-serif;
+  letter-spacing: 5px;
+}
+
+.pop-up button:hover {
+  background-color: #b1b1b1;
+}
+
+.pop-up button:active {
+  box-shadow: inset 20px 20px 10px -14px rgba(0,0,0,0.4);
+}
+
+.endGameAnimation {
+  animation: pop-up 2s;
+}
+
+@keyframes pop-up {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
